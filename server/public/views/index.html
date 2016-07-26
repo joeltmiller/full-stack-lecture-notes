@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="meanApp">
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN Stack</title>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="assets/client.min.js"></script>
+  </head>
+  <body ng-controller="IndexController as index">
+    <div>
+      <h1>MEAN STACK APP {{ index.message }}</h1>
+      <p ng-show="index.cat.name">
+        Your new cat's name is {{index.cat.name}}
+      </p>
+      <p ng-hide="index.cat.name">
+        Enter your cat's name!
+      </p>
+
+      <form novalidate>
+        Name: <input type="text" ng-model="index.cat.name" />
+        <input type="submit" ng-click="index.add(index.cat)" value="Save" />
+      </form>
+
+      <h4>CATS</h4>
+      <ul>
+        <li ng-repeat = "cat in index.cats">
+          {{cat.name}}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
